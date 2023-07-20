@@ -1,0 +1,31 @@
+<h3>Lista de Super Heroes</h3>
+
+<div *ngIf="deletedHero; else nothingWasDeleted"> <!--si no se cumple el if. entra al else y busca la referencia-->
+  <h3>heroe borrado <small class="text-danger">{{deletedHero}}</small></h3>
+</div>
+
+<ng-template #nothingWasDeleted> <!--esta etiqueta es como un div que no existe
+esta etiqueta esta esperando que le diga cuando mostrarse. con el #hacer referencia al nombre que uso en el else-->
+  <h3>no ha borrado nada</h3>
+</ng-template>
+
+
+
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastName()"
+  class="btn btn-outline-danger ">
+  Borrar ultimo heroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let a of heroNames"
+    class="list-group-item">
+    {{a}}
+  </li>
+</ul>
+
+
+
+
